@@ -9,5 +9,5 @@
 #define file_output_cdf
 #define file_output_bin
 #define gotm_call
-#undef  implicit
+#define  implicit
 #define parallel
