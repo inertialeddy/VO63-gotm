@@ -36,5 +36,4 @@ qlatent = Latent heat flux (W/m^2)
 
 rainrate = Precipitation (mm/hr) 
 
-The latent heat flux and rainrate are converted into evaporative and precipitative fluxes, respectively, in the file mixing_vertical.f90. Inside mixing_vertical.f90 the variable 'evap_flux' holds the evaporative flux and 'precip_flux' holds
-the precipitation flux. 
+The latent heat flux and rainrate are converted into evaporative and precipitative fluxes, respectively, in the file heat_and_salt_flux.f90. Inside this file, the variable 'evap_flux' holds the evaporative flux and 'precip_flux' holds the precipitation flux. 
