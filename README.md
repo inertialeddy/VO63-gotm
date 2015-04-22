@@ -30,7 +30,7 @@ These are set in fluxes.f90 using the variables 'swr', 'qloss', 'qlatent' and 'r
 
 swr=  shortwave (W/m^2)
 
-qloss = qnet - swr (W/m^2)
+qloss = Net loss   (W/m^2)
 
 qlatent = Latent heat flux (W/m^2)
 
