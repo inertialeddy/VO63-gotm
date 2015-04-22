@@ -1,5 +1,5 @@
 
-subroutine heat_and_salt_flux(Tdif,step)
+subroutine heat_and_salt_flux(Tdif,Sdif,step)
   !     ---------------------------------------------                     
   USE header
 
@@ -11,7 +11,7 @@ subroutine heat_and_salt_flux(Tdif,step)
   INTEGER :: i,j,k,step
   REAL(kind=rc_kind) :: swrtemp
   REAL(kind=rc_kind) :: fac, Kdfluxdzt, Kdfluxdzb, Kdfluxdzz(NK), swrd(NK)
-  REAL(kind=rc_kind) :: Tdif(NI,NJ,NK)
+  REAL(kind=rc_kind) :: Tdif(NI,NJ,NK),Sdif(NI,NJ,NK)
 
   REAL(kind=rc_kind) :: Lv ! Latent heat of vaporization 
   REAL(kind=rc_kind) :: evap_flux, precip_flux, ref_salt 
@@ -67,11 +67,11 @@ subroutine heat_and_salt_flux(Tdif,step)
       Tdif(i,j, 1) =fac*Jac(i,j, 1)*wz(i,j, 1)*Kdfluxdzb
 
 ! Add salt fluxes (evap. + precip.)  at the top boundary      
-      evap_flux  = var(i,j,NK)*dabs(qlatent(j))/(Lv*R0) 
+      evap_flux  = s(i,j,NK,0)*dabs(qlatent(j))/(Lv*R0) 
 
 ! the rainrate is in mm/hr
 ! For non-uniform salinity flux, proportional to the local surface salinity
-      precip_flux= var(i,j,NK)*rainrate(j)*1d-3/3600.d0 
+      precip_flux= s(i,j,NK,0)*rainrate(j)*1d-3/3600.d0 
 
 ! For uniform salinity flux, use a reference salinity
 !     ref_salt=33.d0 
