@@ -14,7 +14,7 @@ subroutine heat_and_salt_flux(Tdif,Sdif,step)
   REAL(kind=rc_kind) :: Tdif(NI,NJ,NK),Sdif(NI,NJ,NK)
 
   REAL(kind=rc_kind) :: Lv ! Latent heat of vaporization 
-  REAL(kind=rc_kind) :: evap_flux, precip_flux, ref_salt 
+  REAL(kind=rc_kind) :: evap_flux, precip_flux, ref_salt,dfactor  
 ! ----------------------------------
 
   Lv=2.5d6

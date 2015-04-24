@@ -33,7 +33,7 @@ av_comp=1
 u_w=0.;v_w=0.
 T_h=0.;S_h=0.d0
 
-call heat_and_salt_flux  (T_h,S_h,step)
+call heat_and_salt_flux(T_h,S_h,step)
 call wind_stress(u_w,v_w,step)
 
 do selvar=1,5+ntr
